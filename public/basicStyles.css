@@ -3,3 +3,21 @@ h1 {
     color: aliceblue;
     background-color: none;
 }
+
+#info {
+    position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}
+
+#info2 {
+    position: absolute;
+	bottom: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}

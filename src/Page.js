@@ -12,8 +12,9 @@ import Model from './components/Three/Figure';
 
 // Lights
 import Lights from './components/Three/lights';
+import { ClampToEdgeWrapping, CubeReflectionMapping, DoubleSide, RepeatWrapping, TextureLoader, UVMapping } from 'three';
 
-//softShadows();
+softShadows();
 
 const Figure = ({position, args, color}) => {
   const mesh = useRef(null);
@@ -38,6 +39,33 @@ const Figure = ({position, args, color}) => {
     </a.mesh>
   );
 };
+
+const Ring = () => {
+  const texturePainting = new TextureLoader().load( 'logo512.png');
+  // texturePainting.mapping = RepeatWrapping;
+  // texturePainting.center=(0.5, 0.5);
+
+  return (
+    <mesh
+      rotation={[-Math.PI / 2, 0, 0]}
+    >
+      <ringGeometry
+        attach='geometry'
+        args={[100, 200, 64]}
+        />
+      <meshBasicMaterial
+        attach='material'
+        color='white'
+        side={DoubleSide}
+        map={texturePainting}
+      />
+    </mesh>
+  );
+};
+
+// const Text = () => {
+//   <h1 style="position: absolute;">testing</h1>
+// }
 
 function Page() {
 
@@ -81,16 +109,34 @@ function Page() {
     <>
       {/* <h1>literally me</h1> */}
       <Canvas
-        colorManagement
+        ColorManagement={true}
         shadows
         // camera={{ position: [-250, 280, 200], fov: 40 }}
         camera={{ position: [500, -300, 600], fov: 15 }}
       >
+        {/* <Text /> */}
+        
         <Lights />
         <Suspense fallback={null}>
           {/* <Model /> */}
           <Figure position={[0, 1, 0]} args={[3, 2, 1]} color='lightblue'/>
         </Suspense>
+
+        <mesh
+          rotation={[-Math.PI / 2, 0, 0]}
+        >
+          {/* <ringGeometry
+            attach='geometry'
+            args={[100, 200, 64]}
+            />
+          <meshBasicMaterial
+            attach='material'
+            color='white'
+            side={DoubleSide}
+            map={'logo512.png'}/> */}
+        </mesh>
+
+        <Ring />
         <OrbitControls/>
 
       </Canvas>

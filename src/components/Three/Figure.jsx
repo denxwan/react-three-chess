@@ -26,8 +26,9 @@ export default function Model(props) {
             //meshStandardMaterial
             attach='material'
             color={'#ffffff'}
-            //emissive={'#000000'}
-            //roughness={1}
+            //color={'#39ff14'}
+            emissive={'#000000'}
+            roughness={1}
             wireframe={true}
             wireframeLinewidth={2}
             speed={3}
