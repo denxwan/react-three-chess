@@ -1,0 +1,6 @@
+html, body {
+    /* background: linear-gradient(red, yellow); */
+    background-color: #3D4143;
+    overflow: hidden;
+    margin: 0;
+}

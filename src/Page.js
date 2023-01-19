@@ -5,7 +5,14 @@ import { Canvas, useFrame } from '@react-three/fiber';
 
 import { softShadows, OrbitControls } from '@react-three/drei';
 
-import { useSpring, a } from '@react-spring/three'
+import { useSpring, a } from '@react-spring/three';
+
+// import theatre dependencies
+import { studio } from '@theatre/studio'; 
+//import * as core from '@theatre/core';
+import { getProject } from '@theatre/core';
+
+
 
 // Model
 import Model from './components/Three/Figure';
@@ -13,6 +20,7 @@ import Model from './components/Three/Figure';
 // Lights
 import Lights from './components/Three/lights';
 import { ClampToEdgeWrapping, CubeReflectionMapping, DoubleSide, RepeatWrapping, TextureLoader, UVMapping } from 'three';
+
 
 softShadows();
 
@@ -43,7 +51,8 @@ const Figure = ({position, args, color}) => {
 const Ring = () => {
   const texturePainting = new TextureLoader().load( 'logo512.png');
   // texturePainting.mapping = RepeatWrapping;
-  // texturePainting.center=(0.5, 0.5);
+  texturePainting.offset.set=(1, 0);
+  // texturePainting.rotation.set=(0.1);
 
   return (
     <mesh

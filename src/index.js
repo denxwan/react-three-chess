@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Page from './Page';
+import { studio } from '@theatre/studio'; 
+import Theatre from './Theatre';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Page />
+    <Theatre />
   </React.StrictMode>
 );
 
